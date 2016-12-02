@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/kdaglish/motorbikeshop/issues"
   },
-  "homepage": "https://github.com/kdaglish/motorbikeshop#readme"
+  "homepage": "https://github.com/kdaglish/motorbikeshop#readme",
+  "dependencies": {
+    "angular": "^1.6.0-rc.2"
+  }
 }

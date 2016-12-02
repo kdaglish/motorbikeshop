@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)file:///Users/kevindaglish/Documents/motorbikeshop/app/index.html -->
+<html ng-app="bikeStore" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <script src="./index_files/angular.min.js"></script>
+    <script src="./index_files/app.js"></script>
+    <link rel="stylesheet" href="./index_files/bikes.css">
+  </head>
+
+  <body ng-controller="bikeController as $ctrl" class="ng-scope">
+    <!-- ngRepeat: bike in $ctrl.bikes --><div ng-repeat="bike in $ctrl.bikes" class="bike-wrapper ng-scope">
+      <h1 class="ng-binding">Honda CBR600rr</h1>
+      <!-- ngRepeat: imageUrl in bike.images --><div ng-repeat="imageUrl in bike.images" class="ng-scope">
+        <img ng-src="bike_images/cbr600rr-01.jpg" class="bike" src="./index_files/cbr600rr-01.jpg">
+      </div><!-- end ngRepeat: imageUrl in bike.images --><div ng-repeat="imageUrl in bike.images" class="ng-scope">
+        <img ng-src="bike_images/cbr600rr-02.jpg" class="bike" src="./index_files/cbr600rr-02.jpg">
+      </div><!-- end ngRepeat: imageUrl in bike.images -->
+    </div><!-- end ngRepeat: bike in $ctrl.bikes --><div ng-repeat="bike in $ctrl.bikes" class="bike-wrapper ng-scope">
+      <h1 class="ng-binding">Yamaha YZF-R6</h1>
+      <!-- ngRepeat: imageUrl in bike.images --><div ng-repeat="imageUrl in bike.images" class="ng-scope">
+        <img ng-src="bike_images/r6-01.jpg" class="bike" src="./index_files/r6-01.jpg">
+      </div><!-- end ngRepeat: imageUrl in bike.images --><div ng-repeat="imageUrl in bike.images" class="ng-scope">
+        <img ng-src="bike_images/r6-02.jpg" class="bike" src="./index_files/r6-02.jpg">
+      </div><!-- end ngRepeat: imageUrl in bike.images -->
+    </div><!-- end ngRepeat: bike in $ctrl.bikes -->
+  
+
+</body></html>
