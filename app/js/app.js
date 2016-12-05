@@ -1,6 +1,11 @@
 var app = angular.module('bikeStore', []);
 
 app.controller('bikeController', function() {
+  this.tabIndex = 1;
+
+  this.tabChange = function(tabIndex){
+    this.tabIndex = tabIndex;
+  }
 
   this.bikes =
   [
@@ -8,6 +13,11 @@ app.controller('bikeController', function() {
       name: 'Honda CBR600rr',
       description: "The CBR600RR",
       price: 9000.00,
+      specs: {
+        engineType: "599 cc liquid-cooled inline four cylinder",
+        power: "105.5 hp",
+        brakes: "Dual radial-mounted four-piston calipers with 310.0 mm (12.20 in) discs"
+      },
       images: [
         "bike_images/cbr600rr-01.jpg",
         "bike_images/cbr600rr-02.jpg"
@@ -31,6 +41,11 @@ app.controller('bikeController', function() {
       name: 'Yamaha YZF-R6',
       description: "yahamahahaha",
       price: 9999.99,
+      specs: {
+        engineType: "599 cc liquid-cooled inline four-cylinder",
+        power: "108.5 hp",
+        brakes: "Dual radial-mounted four-piston calipers with 310.0 mm (12.20 in) discs"
+      },
       images: [
         "bike_images/r6-01.jpg",
         "bike_images/r6-02.jpg"

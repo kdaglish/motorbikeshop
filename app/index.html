@@ -8,10 +8,35 @@
 
   <body ng-controller="bikeController as $ctrl">
     <div ng-repeat="bike in $ctrl.bikes" class="bike-wrapper">
-      <h1>{{bike.name}}</h1>
-      <div ng-repeat="imageUrl in bike.images">
-        <img ng-src="{{imageUrl}}" class="bike">
+      <h1>{{bike.name}} {{bike.price | currency}}</h1>
+      <div ng-src="imageUrl in bike.images">
+        <img ng-src="{{bike.images[0]}}" class="bike-portrait">
       </div>
+      <div ng-repeat="imageUrl in bike.images">
+        <img ng-src="{{imageUrl}}" class="bike-thumbnail">
+      </div>
+      <nav>
+        <button ng-click=$ctrl.tabChange(1)>Description</button>
+        <button ng-click=$ctrl.tabChange(2)>Specs</button>
+        <button ng-click=$ctrl.tabChange(3)>Reviews</button>
+      </nav>
+      <section ng-if="$ctrl.tabIndex == 1">
+        <p>{{bike.description}}</p>
+      </section>
+      <section ng-if="$ctrl.tabIndex == 2">
+        <p>engineType : {{bike.specs.engineType}}</p>
+        <p>power : {{bike.specs.power}}</p>
+        <p>brakes : {{bike.specs.brakes}}</p>
+      </section>
+      <section ng-if="$ctrl.tabIndex == 3">
+        <div ng-repeat="review in bike.reviews">
+          <p>stars : {{review.stars}}</p>
+          <p>body : {{review.body}}</p>
+          <p>author : {{review.author}}</p>
+          <p>createdOn : {{review.createdOn}}</p>
+        </div>
+      </section>
     </div>
+
   </body>
 </html>
