@@ -2,41 +2,35 @@
 <html ng-app="bikeStore">
   <head>
     <script src="../node_modules/angular/angular.min.js"></script>
+    <script src="../node_modules/angular-route/angular-route.min.js"></script>
+    <script src="js/helmet.js"></script>
+    <script src="js/bike.js"></script>
     <script src="js/app.js"></script>
     <link rel="stylesheet" href="css/bikes.css"></link>
   </head>
 
-  <body ng-controller="bikeController as $ctrl">
-    <div ng-repeat="bike in $ctrl.bikes" class="bike-wrapper">
-      <h1>{{bike.name}} {{bike.price | currency}}</h1>
-      <div ng-src="imageUrl in bike.images">
-        <img ng-src="{{bike.images[0]}}" class="bike-portrait">
-      </div>
-      <div ng-repeat="imageUrl in bike.images">
-        <img ng-src="{{imageUrl}}" class="bike-thumbnail">
-      </div>
-      <nav>
-        <button ng-click=$ctrl.tabChange(1)>Description</button>
-        <button ng-click=$ctrl.tabChange(2)>Specs</button>
-        <button ng-click=$ctrl.tabChange(3)>Reviews</button>
-      </nav>
-      <section ng-if="$ctrl.tabIndex == 1">
-        <p>{{bike.description}}</p>
-      </section>
-      <section ng-if="$ctrl.tabIndex == 2">
-        <p>engineType : {{bike.specs.engineType}}</p>
-        <p>power : {{bike.specs.power}}</p>
-        <p>brakes : {{bike.specs.brakes}}</p>
-      </section>
-      <section ng-if="$ctrl.tabIndex == 3">
-        <div ng-repeat="review in bike.reviews">
-          <p>stars : {{review.stars}}</p>
-          <p>body : {{review.body}}</p>
-          <p>author : {{review.author}}</p>
-          <p>createdOn : {{review.createdOn}}</p>
-        </div>
-      </section>
-    </div>
+  <body>
+    <div ng-controller="primaryTabController as test">
+      <!-- <button ng-click="test.primaryTabChange(1)" class="primary-button__motorcycles">Motorcycles</button>
+      <button ng-click="test.primaryTabChange(2)" class="primary-Helmets">Helmets</button>
+      <button ng-click="test.primaryTabChange(3)" class="primary-Contact">Contact</button> -->
+      <a href="#/bikes">bikes</a> 
+      <a href="#/helmets">helmets</a>
+      <!-- <a href="/contact">contact</a>  -->
 
+      <div class="container" ng-view>
+        <!-- <bikes-list ng-if="test.primaryTabIndex == 1"></bikes-list>
+        <helmets-list ng-if="test.primaryTabIndex == 2"></helmets-list> -->
+        <!-- dynamic views -->
+      </div>
+
+
+      <div ng-if="test.primaryTabIndex == 3">
+        <section>
+          <h1>CONTACT</h1>
+          here is some text
+        </section>
+      </div>
+    </div>
   </body>
 </html>
