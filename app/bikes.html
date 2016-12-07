@@ -1,19 +1,15 @@
 
-  <section ng-controller="bikeController as $ctrl">
+  <section ng-controller="bikesController as $ctrl">
     <div ng-repeat="bike in $ctrl.bikes" class="bike-wrapper">
       <h1>{{bike.name}} {{bike.price | currency}}</h1>
-      <div ng-src="imageUrl in bike.images">
-        <img ng-src="{{bike.images[0]}}" class="bike-portrait">
-      </div>
-      <div ng-repeat="imageUrl in bike.images">
-        <img ng-src="{{imageUrl}}" class="bike-thumbnail">
+      <img ng-src="{{bike.images[0]}}" class="bike-portrait">
+      <div>
+        <img ng-repeat="imageUrl in bike.images" ng-src="{{imageUrl}}" class="bike-thumbnail">
       </div>
       <nav ng-init="bike.tabIndex = 1">
-        <p>
-          <button ng-click="bike.tabIndex = 1" class="bike-secondary-button__description">Description</button>
-          <button ng-click="bike.tabIndex = 2" class="bike-secondary-button__Specs">Specs</button>
-          <button ng-click="bike.tabIndex = 3" class="bike-secondary-button__Reviews">Reviews</button>
-        </p>
+        <button ng-click="bike.tabIndex = 1" class="bike-secondary-button__description">Description</button>
+        <button ng-click="bike.tabIndex = 2" class="bike-secondary-button__Specs">Specs</button>
+        <button ng-click="bike.tabIndex = 3" class="bike-secondary-button__Reviews">Reviews</button>
       </nav>
       <section ng-if="bike.tabIndex == 1">
         <p>{{bike.description}}</p>
@@ -30,6 +26,20 @@
           <p>author : {{review.author}}</p>
           <p>createdOn : {{review.createdOn}}</p>
         </div>
+
+        <!--  Review Form -->
+        <form name="reviewForm" ng-submit="$ctrl.addReview(bike, bike.newReview)">
+          <h4>Submit a Review</h4>
+          <select ng-model="bike.newReview.stars" class="stars-input" ng-options="stars for stars in [5,4,3,2,1]"  title="Stars">
+            <option value="">Rate the Product</option>
+          </select>
+          <textarea ng-model="bike.newReview.body" class="text-input" placeholder="Write a of product" title="Review"></textarea>
+          <input ng-model="bike.newReview.author" type="email" class="email-input" placeholder="email@email.com" title="Email" />
+          <input type="submit" class="submit-button" value="Submit Review" />
+        </form>
+
+
+
       </section>
     </div>
   </section>

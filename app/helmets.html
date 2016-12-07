@@ -1,11 +1,9 @@
   <section ng-controller="helmetController as $ctrl">
     <div ng-repeat="helmet in $ctrl.helmets" class="helmet-wrapper">
       <h1>{{helmet.name}} {{helmet.price | currency}}</h1>
-      <div ng-src="imageUrl in helmet.images">
         <img ng-src="{{helmet.images[0]}}" class="helmet-portrait">
-      </div>
-      <div ng-repeat="imageUrl in helmet.images">
-        <img ng-src="{{imageUrl}}" class="helmet-thumbnail">
+      <div>
+        <img ng-repeat="imageUrl in helmet.images" ng-src="{{imageUrl}}" class="helmet-thumbnail">
       </div>
       <nav ng-init="helmet.tabIndex = 1">
         <button ng-click="helmet.tabIndex = 1" class="helmet-secondary-button__description">Description</button>

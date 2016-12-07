@@ -5,17 +5,19 @@
     <script src="../node_modules/angular-route/angular-route.min.js"></script>
     <script src="js/helmet.js"></script>
     <script src="js/bike.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/home.js"></script>
     <script src="js/app.js"></script>
     <link rel="stylesheet" href="css/bikes.css"></link>
   </head>
 
   <body>
-    <div ng-controller="primaryTabController as test">
-      <!-- <button ng-click="test.primaryTabChange(1)" class="primary-button__motorcycles">Motorcycles</button>
-      <button ng-click="test.primaryTabChange(2)" class="primary-Helmets">Helmets</button>
-      <button ng-click="test.primaryTabChange(3)" class="primary-Contact">Contact</button> -->
-      <a href="#/bikes">bikes</a> 
-      <a href="#/helmets">helmets</a>
+      <nav>
+        <a href="#/home" class="primary-home">home</a>
+        <a href="#/bikes" class="primary-Helmets">bikes</a>
+        <a href="#/helmets" class="primary-Contact">helmets</a>
+        <a href="#/contact" class="primary-Contact">contact</a>
+      </nav>
       <!-- <a href="/contact">contact</a>  -->
 
       <div class="container" ng-view>
@@ -23,14 +25,5 @@
         <helmets-list ng-if="test.primaryTabIndex == 2"></helmets-list> -->
         <!-- dynamic views -->
       </div>
-
-
-      <div ng-if="test.primaryTabIndex == 3">
-        <section>
-          <h1>CONTACT</h1>
-          here is some text
-        </section>
-      </div>
-    </div>
   </body>
 </html>

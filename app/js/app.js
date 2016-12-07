@@ -1,24 +1,24 @@
 angular.module('bikeStore', [
   'ngRoute',
   'helmetProducts',
-  'bikeProducts'
+  'bikeProducts',
+  'contact',
+  'home'
 ])
 
 .config(function($routeProvider){
   $routeProvider.
+  when('/home', {
+    template: '<home></home>'
+  }).
   when('/bikes', {
     template: '<bikes-list></bikes-list>'
   }).
   when('/helmets', {
     template: '<helmets-list></helmets-list>'
   }).
-  otherwise('/bikes');
-})
-
-.controller('primaryTabController', function(){
-  this.primaryTabIndex = 1;
-
-  this.primaryTabChange = function(TabIndex){
-    this.primaryTabIndex = TabIndex;
-  }
+  when('/contact', {
+    template: '<contact></contact>'
+  }).
+  otherwise('/home');
 });
